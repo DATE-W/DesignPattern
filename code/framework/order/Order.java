@@ -3,16 +3,23 @@ package framework.order;
 import java.util.ArrayList;
 
 public class Order implements OrderInterface {
-    // 存储食品(暂时用String 未来替换为Food)
-    private ArrayList<String> allFood = new ArrayList<>();
+    private ArrayList<String> allFood = new ArrayList<>();  // 存储食品(暂时用String 未来替换为Food)
+    private PromotionContext promotionContext;  // 存储促销策略
+
+    public void setPromotionContext(PromotionContext promotionContext){
+        this.promotionContext = promotionContext;
+    }
 
     @Override
     public double orderPrice() {
-        double price = 0L;
+        double originalPrice = 100L;
         for (String food : allFood) {
-            price = price + 1L;
+            originalPrice  = originalPrice + 1L;
         }
-        return price;
+        if(promotionContext != null){
+            return promotionContext.applyPromotion(originalPrice);
+        }
+        return originalPrice;
     }
 
     @Override

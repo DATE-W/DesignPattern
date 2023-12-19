@@ -9,11 +9,15 @@ public class OrderBuilder {
     public void orderDumpling(){
         // 馄饨订单 调用FoodFactory中的对应创建订单方法
         // 将内容加入到allFood中
+        allFood.add("delicious dumplings");
+        System.out.println("entry orderDumpling");
     }
 
     public void orderDrink(){
         // 饮品订单 调用FoodFactory中的对应创建订单方法
         // 将内容加入到allFood中
+        allFood.add("coke");
+        System.out.println("entry orderDrink");
     }
 
     public Order order(){
