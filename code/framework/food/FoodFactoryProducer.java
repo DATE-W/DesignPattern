@@ -2,14 +2,20 @@ package framework.food;
 
 public class FoodFactoryProducer {
     public enum FoodFactoryName {
-        ITEM,
+        Taco,
+        Drink,
+        Snacks,
         SETMEAL
     }
 
     public static FoodFactory create(FoodFactoryName foodFactoryName) {
         switch (foodFactoryName) {
-            case ITEM:
-                return new ItemFactory();
+            case Taco:
+                return new TacoFactory();
+            case Drink:
+                return new DrinkFactory();
+            case Snacks:
+                return new SnacksFactory();
             case SETMEAL:
                 return new SetMealFactory();
             default:
