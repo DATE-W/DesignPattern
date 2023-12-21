@@ -12,20 +12,18 @@ public class SnacksFactory extends FoodFactory{
     @Override
     public Item createItem(FoodName foodName) {
         switch (foodName) {
-            case CheeseFiredChickenTaco:
+            case ChickenNuggets5:
                 return new CheeseFiredChickenTaco(
                         new ArrayList<>(Arrays.asList(
-                                "taco饼",
-                                "芝士",
-                                "炸鸡")),
-                        19.5);
-            case AvocadoFiredChickenTaco:
+                                "鸡块",
+                                "芝士酱")),
+                        8.5);
+            case CheeseFries:
                 return new AvocadoFiredChickenTaco(
                         new ArrayList<>(Arrays.asList(
-                                "taco饼",
-                                "牛油果",
-                                "炸鸡")),
-                        21.5);
+                                "薯条",
+                                "芝士")),
+                        8.5);
             default:
                 throw new IllegalArgumentException(foodName+"不在菜单中");
         }

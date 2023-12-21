@@ -14,5 +14,11 @@ public enum FoodName {
     //奶酪炸鸡taco
     CheeseFiredChickenTaco,
     //牛油果炸鸡taco
-    AvocadoFiredChickenTaco
+    AvocadoFiredChickenTaco,
+
+    //Snacks
+    //鸡块*5
+    ChickenNuggets5,
+    //芝士薯条
+    CheeseFries,
 }

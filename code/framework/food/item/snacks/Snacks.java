@@ -1,14 +1,13 @@
-package framework.food.item.taco;
+package framework.food.item.snacks;
 
-import framework.food.Food;
 import framework.food.item.Item;
 
 import java.util.ArrayList;
 
-public abstract class Taco extends Item {
+public abstract class Snacks extends Item {
     private ArrayList<String> ingredients = new ArrayList<>();
 
-    Taco(ArrayList<String> ingredients,double price){
+    Snacks(ArrayList<String> ingredients,double price){
         super(price);
         this.ingredients.addAll(ingredients);
     }
@@ -19,7 +18,7 @@ public abstract class Taco extends Item {
 
     @Override
     public void handle(){
-        System.out.println("\nTaco开始烹饪 " + this.getName());
+        System.out.println("\n小食开始烹饪 " + this.getName());
 //        Chef chef = Chef.getInstance();
 //
 //        for (String type : ingredients) {
@@ -34,6 +33,6 @@ public abstract class Taco extends Item {
 //            ingredient.doCook();
 //        }
 
-        System.out.println("Taco烹饪完成 " + this.getName());
+        System.out.println("小食烹饪完成 " + this.getName());
     }
 }
