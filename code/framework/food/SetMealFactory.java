@@ -1,12 +1,7 @@
 package framework.food;
 
 import framework.food.item.Item;
-import framework.food.item.single1;
-import framework.food.setMeal.Multi1;
-import framework.food.setMeal.SetMeal;
-
-import java.util.ArrayList;
-import java.util.List;
+import framework.food.setMeal.*;
 
 public class SetMealFactory extends FoodFactory {
     @Override
@@ -16,14 +11,10 @@ public class SetMealFactory extends FoodFactory {
 
     @Override
     public SetMeal createSetMeal(FoodName foodName) {
-        switch (foodName) {
-            case MULTI1:
-                List<Item> itemList = new ArrayList<>();
-                itemList.add(new single1(1.1));
-                itemList.add(new single1(2.1));
-                return new Multi1(itemList);
-            default:
-                return new Multi1(null);
-        }
+        return switch (foodName) {
+            case Set_CheeseFiredChickenTaco_Coke -> new Set_CheeseFiredChickenTaco_Coke();
+            case Set_AvocadoFiredChickenTaco_ChickenNuggets5 -> new Set_AvocadoFiredChickenTaco_ChickenNuggets5();
+            default -> new NotSetMeal();
+        };
     }
 }

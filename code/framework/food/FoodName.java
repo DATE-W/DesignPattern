@@ -1,9 +1,6 @@
 package framework.food;
 
 public enum FoodName {
-    SINGLE1,
-    MULTI1,
-
     //Drink
     //可乐
     Coke,
@@ -21,4 +18,10 @@ public enum FoodName {
     ChickenNuggets5,
     //芝士薯条
     CheeseFries,
+
+    // 炸鸡taco+可乐
+    Set_CheeseFiredChickenTaco_Coke,
+
+    // 牛油果taco+鸡块
+    Set_AvocadoFiredChickenTaco_ChickenNuggets5
 }

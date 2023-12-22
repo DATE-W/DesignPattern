@@ -9,17 +9,12 @@ public class FoodFactoryProducer {
     }
 
     public static FoodFactory create(FoodFactoryName foodFactoryName) {
-        switch (foodFactoryName) {
-            case Taco:
-                return new TacoFactory();
-            case Drink:
-                return new DrinkFactory();
-            case Snacks:
-                return new SnacksFactory();
-            case SETMEAL:
-                return new SetMealFactory();
-            default:
-                return new ItemFactory();
-        }
+        return switch (foodFactoryName) {
+            case Taco -> new TacoFactory();
+            case Drink -> new DrinkFactory();
+            case Snacks -> new SnacksFactory();
+            case SETMEAL -> new SetMealFactory();
+            default -> new ItemFactory();
+        };
     }
 }
