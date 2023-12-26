@@ -14,7 +14,6 @@ public class FoodFactoryProducer {
             case Drink -> new DrinkFactory();
             case Snacks -> new SnacksFactory();
             case SETMEAL -> new SetMealFactory();
-            default -> new ItemFactory();
         };
     }
 }

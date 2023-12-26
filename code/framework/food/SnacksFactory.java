@@ -1,6 +1,7 @@
 package framework.food;
 
 import framework.food.item.Item;
+import framework.food.item.snacks.CheeseFries;
 import framework.food.item.taco.AvocadoFiredChickenTaco;
 import framework.food.item.taco.CheeseFiredChickenTaco;
 import framework.food.setMeal.SetMeal;
@@ -19,7 +20,7 @@ public class SnacksFactory extends FoodFactory{
                                 "芝士")),
                         8.5);
             case CheeseFries:
-                return new AvocadoFiredChickenTaco(
+                return new CheeseFries(
                         new ArrayList<>(Arrays.asList(
                                 "薯条",
                                 "芝士")),
