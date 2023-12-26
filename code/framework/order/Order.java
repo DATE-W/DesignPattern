@@ -1,12 +1,12 @@
 package framework.order;
 
 import framework.chef.ChefObserver;
-
+import framework.food.Food;
 import java.util.ArrayList;
 import java.util.List;
 
 public class Order implements OrderInterface {
-    private ArrayList<String> allFood = new ArrayList<>();  // 存储食品(暂时用String 未来替换为Food)
+    private ArrayList<Food> allFood = new ArrayList<>();  // 存储食品(暂时用String 未来替换为Food)
     private PromotionContext promotionContext;  // 存储促销策略
     private List<OrderObserver> observers = new ArrayList<>();
 
@@ -16,9 +16,9 @@ public class Order implements OrderInterface {
 
     @Override
     public double orderPrice() {
-        double originalPrice = 100L;
-        for (String food : allFood) {
-            originalPrice  = originalPrice + 1L;
+        double originalPrice = 0L;
+        for (Food food : allFood) {
+            originalPrice  = originalPrice + food.getPrice();
         }
         if(promotionContext != null){
             return promotionContext.applyPromotion(originalPrice);
@@ -28,14 +28,14 @@ public class Order implements OrderInterface {
 
     @Override
     public void displayFood() {
-        for (String food : allFood) {
-            System.out.println("订单食物: " + food);
+        for (Food food : allFood) {
+            System.out.println("订单食物: " + food.getName());
         }
-        System.out.println("订单价格: "+orderPrice());
+        System.out.println("订单消费: " + orderPrice() + "元");
     }
 
     // 添加食物(在OrderBuilder中调用)(用String)
-    public void addToOrder(String food) {
+    public void addToOrder(Food food) {
         allFood.add(food);
         notifyObservers();
     }
