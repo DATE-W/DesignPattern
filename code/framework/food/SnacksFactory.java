@@ -16,7 +16,7 @@ public class SnacksFactory extends FoodFactory{
                 return new CheeseFiredChickenTaco(
                         new ArrayList<>(Arrays.asList(
                                 "鸡块",
-                                "芝士酱")),
+                                "芝士")),
                         8.5);
             case CheeseFries:
                 return new AvocadoFiredChickenTaco(
