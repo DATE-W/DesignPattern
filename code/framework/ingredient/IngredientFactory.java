@@ -24,8 +24,9 @@ public class IngredientFactory {
     }
     /**
      * 种类的枚举集合
+     * 鸡块 芝士 薯条 taco饼 炸鸡排 牛油果
      */
-    enum IngredientType{PORK,CHICKEN,BEEF}
+    public enum IngredientType{鸡块,芝士,薯条,taco饼,炸鸡排,牛油果}
 
     /**
      * 根据选择生成不同类型食材
