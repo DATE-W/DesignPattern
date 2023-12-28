@@ -24,16 +24,16 @@ class TacoFactory extends FoodFactory{
             case CheeseFiredChickenTaco:
                 return new CheeseFiredChickenTaco(
                         new ArrayList<>(Arrays.asList(
-                                "taco饼",
-                                "芝士",
-                                "炸鸡排")),
+                                IngredientFactory.IngredientType.taco饼,
+                                IngredientFactory.IngredientType.芝士,
+                                IngredientFactory.IngredientType.炸鸡排)),
                         19.5);
             case AvocadoFiredChickenTaco:
                 return new AvocadoFiredChickenTaco(
                         new ArrayList<>(Arrays.asList(
-                                "taco饼",
-                                "牛油果",
-                                "炸鸡排")),
+                                IngredientFactory.IngredientType.taco饼,
+                                IngredientFactory.IngredientType.牛油果,
+                                IngredientFactory.IngredientType.炸鸡排)),
                         21.5);
             default:
                 throw new IllegalArgumentException(foodName+"不在菜单中");

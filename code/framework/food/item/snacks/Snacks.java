@@ -1,18 +1,19 @@
 package framework.food.item.snacks;
 
 import framework.food.item.Item;
+import framework.ingredient.IngredientFactory;
 
 import java.util.ArrayList;
 
 public abstract class Snacks extends Item {
-    private ArrayList<String> ingredients = new ArrayList<>();
+    private ArrayList<IngredientFactory.IngredientType> ingredients = new ArrayList<>();
 
-    Snacks(ArrayList<String> ingredients,double price){
+    Snacks(ArrayList<IngredientFactory.IngredientType> ingredients,double price){
         super(price);
         this.ingredients.addAll(ingredients);
     }
 
-    public ArrayList<String> getIngredients(){
+    public ArrayList<IngredientFactory.IngredientType> getIngredients(){
         return ingredients;
     }
 

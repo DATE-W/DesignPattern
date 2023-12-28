@@ -1,9 +1,12 @@
 package framework.food.item.taco;
 
+import framework.ingredient.Ingredient;
+import framework.ingredient.IngredientFactory;
+
 import java.util.ArrayList;
 
 public class CheeseFiredChickenTaco extends Taco{
-    public CheeseFiredChickenTaco(ArrayList<String> ingredients,double price){
+    public CheeseFiredChickenTaco(ArrayList<IngredientFactory.IngredientType> ingredients, double price){
         super(ingredients,price);
     }
 
