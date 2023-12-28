@@ -1,6 +1,10 @@
 package framework.chef;
 
-public final class Chef {
+import framework.order.Order;
+import java.util.ArrayList;
+import java.util.List;
+
+public final class Chef implements ChefCommand{
     private static final Chef instance = new Chef();
     private boolean isBusy;
     private Chef() {
@@ -16,6 +20,15 @@ public final class Chef {
     public synchronized boolean getBusy() {
         return isBusy;
     }
+
+    @Override
+    public void processOrder(Order theOrder)
+    {
+        System.out.println("接到订单");
+        theOrder.displayFood();
+        theOrder.handleOrder();
+    }
+
 }
 
 class Test {

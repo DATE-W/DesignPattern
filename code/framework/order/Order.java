@@ -40,6 +40,10 @@ public class Order implements OrderInterface {
         notifyObservers();
     }
 
+    public void handleOrder(){
+        System.out.println("订单已处理完毕");
+    }
+
     public void addObserver(OrderObserver observer) {
         observers.add(observer);
     }
