@@ -15,27 +15,23 @@ public abstract class Taco extends Item {
         this.ingredients.addAll(ingredients);
     }
 
-    public ArrayList<IngredientFactory.IngredientType> getIngredients(){
-        return ingredients;
-    }
-
     @Override
     public void handle(){
         System.out.println("\nTaco开始烹饪 " + this.getName());
         Chef chef = Chef.getInstance();
 
-//        for (IngredientFactory.IngredientType type : ingredients) {
-//            if (!(chef.hasIngredient(type))) {
-//                System.out.println("缺少材料，加工失败：(");
-//                return;
-//            }
-//        }
-//
-//        for (IngredientFactory.IngredientType type : ingredients) {
-//            Ingredient ingredient = chef.getIngredient(type);
-//            ingredient.doCook();
-//        }
+        for (IngredientFactory.IngredientType type : ingredients) {
+            if (!(IngredientFactory.hasIngredient(type))) {
+                System.out.println("缺少材料，加工失败：(");
+                return;
+            }
+        }
+
+        for (IngredientFactory.IngredientType type : ingredients) {
+            chef.getIngredient(type);
+        }
 
         System.out.println("Taco烹饪完成 " + this.getName());
     }
+
 }

@@ -1,5 +1,7 @@
 package framework.chef;
 
+import framework.ingredient.Ingredient;
+import framework.ingredient.IngredientFactory;
 import framework.order.Order;
 import java.util.ArrayList;
 import java.util.List;
@@ -21,6 +23,12 @@ public final class Chef implements ChefCommand{
         return isBusy;
     }
 
+    public Ingredient getIngredient(IngredientFactory.IngredientType ingredientType){
+        Ingredient ingredient = IngredientFactory.createIngredient(ingredientType);
+        System.out.println("正在处理原料："+ingredientType);
+        return ingredient;
+    }
+
     @Override
     public void processOrder(Order theOrder)
     {
@@ -34,6 +42,7 @@ public final class Chef implements ChefCommand{
 class Test {
     public static void main(String[] args) {
         Chef test = Chef.getInstance();
+//        test.getIngredient(IngredientFactory.IngredientType.炸鸡排);
         System.out.print(test.getBusy());
     }
 }

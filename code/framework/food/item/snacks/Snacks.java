@@ -1,5 +1,6 @@
 package framework.food.item.snacks;
 
+import framework.chef.Chef;
 import framework.food.item.Item;
 import framework.ingredient.IngredientFactory;
 
@@ -20,19 +21,18 @@ public abstract class Snacks extends Item {
     @Override
     public void handle(){
         System.out.println("\n小食开始烹饪 " + this.getName());
-//        Chef chef = Chef.getInstance();
-//
-//        for (String type : ingredients) {
-//            if (!(chef.hasIngredient(type))) {
-//                System.out.println("缺少材料，加工失败：(");
-//                return;
-//            }
-//        }
+        Chef chef = Chef.getInstance();
 
-//        for (String type : ingredients) {
-//            Ingredient ingredient = chef.getIngredient(type);
-//            ingredient.doCook();
-//        }
+        for (IngredientFactory.IngredientType type : ingredients) {
+            if (!(IngredientFactory.hasIngredient(type))) {
+                System.out.println("缺少材料，加工失败：(");
+                return;
+            }
+        }
+
+        for (IngredientFactory.IngredientType type : ingredients) {
+            chef.getIngredient(type);
+        }
 
         System.out.println("小食烹饪完成 " + this.getName());
     }

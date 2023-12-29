@@ -31,14 +31,14 @@ public class IngredientFactory {
     /**
      * 原料初始数量均设置为999
      */
-    private int ingredientNum[] = {999, 999, 999, 999, 999, 999};
+    private static int[] ingredientNum = {999, 999, 999, 999, 999, 999};
 
     /**
      * 根据选择生成不同类型食材
      * @param ingredientType
      * @return
      */
-    public Ingredient createIngredient(IngredientType ingredientType){
+    public static Ingredient createIngredient(IngredientType ingredientType){
         int type = ingredientType.ordinal();
         if(ingredientNum[type] != 0)
         {
@@ -51,5 +51,9 @@ public class IngredientFactory {
         }
     }
 
+    public static boolean hasIngredient(IngredientType ingredientType){
+        int type = ingredientType.ordinal();
+        return ingredientNum[type] != 0;
+    }
 
 }
