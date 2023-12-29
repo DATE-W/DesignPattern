@@ -29,12 +29,26 @@ public class IngredientFactory {
     public enum IngredientType{鸡块,芝士,薯条,taco饼,炸鸡排,牛油果}
 
     /**
+     * 原料初始数量均设置为999
+     */
+    private int ingredientNum[] = {999, 999, 999, 999, 999, 999};
+
+    /**
      * 根据选择生成不同类型食材
      * @param ingredientType
      * @return
      */
     public Ingredient createIngredient(IngredientType ingredientType){
-        return new Ingredient(ingredientType.toString());
+        int type = ingredientType.ordinal();
+        if(ingredientNum[type] != 0)
+        {
+            ingredientNum[ingredientType.ordinal()]--;
+            return new Ingredient(ingredientType.toString());
+        }
+        else
+        {
+            return null;
+        }
     }
 
 
