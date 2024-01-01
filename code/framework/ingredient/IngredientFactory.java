@@ -9,7 +9,7 @@ import java.util.List;
  * 食品工厂
  */
 public class IngredientFactory {
-    private HashMap<String,List<Ingredient>> foodMap;
+    private HashMap<String,List<Ingredient>> foodMap=new HashMap<>();
     private List<Ingredient> 鸡块List=new ArrayList<>(100);
     private List<Ingredient> 芝士List=new ArrayList<>(100);
     private List<Ingredient> 薯条List=new ArrayList<>(100);
