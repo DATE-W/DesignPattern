@@ -55,13 +55,9 @@ public class IngredientFactory {
      */
     public enum IngredientType{鸡块,芝士,薯条,taco饼,炸鸡排,牛油果}
 
-//    /**
-//     * 原料初始数量均设置为999
-//     */
-//    private static int[] ingredientNum = {999, 999, 999, 999, 999, 999};
 
     /**
-     * 根据选择生成不同类型食材
+     * 根据选择提供不同类型食材
      * @param ingredientType
      * @return
      */
@@ -71,11 +67,28 @@ public class IngredientFactory {
             for(Ingredient ingredient:foodList){
                 if(ingredient.getState()=="raw"){
                     foodList.remove(ingredient);
+                    return ingredient;
                 }
             }
         }
         return null;
 
+    }
+
+    /**
+     * 原料进货
+     * @param ingredientType 种类
+     * @param num 数量
+     * @throws CloneNotSupportedException
+     */
+    public void importIngredient(IngredientType ingredientType,int num) throws CloneNotSupportedException {
+        List<Ingredient> foodList=this.foodMap.get(ingredientType.toString());
+        Ingredient ingredient=new Ingredient(ingredientType.toString());
+        for(int i=1;i<num;i++){
+            Ingredient clonedIngredient=ingredient.clone();
+            foodList.add(clonedIngredient);
+        }
+        foodList.add(ingredient);
     }
 
     public boolean hasIngredient(IngredientType ingredientType){

@@ -2,7 +2,7 @@ package framework.ingredient.IngredientState;
 
 import framework.ingredient.Ingredient;
 
-public class IngredientRawState implements IngredientState {
+public class IngredientRawState implements IngredientState  {
 
 
     @Override
@@ -14,5 +14,6 @@ public class IngredientRawState implements IngredientState {
     public String getState() {
         return "raw";
     }
+
 
 }

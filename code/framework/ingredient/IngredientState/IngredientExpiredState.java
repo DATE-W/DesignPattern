@@ -2,7 +2,7 @@ package framework.ingredient.IngredientState;
 
 import framework.ingredient.Ingredient;
 
-public class IngredientExpiredState implements IngredientState{
+public class IngredientExpiredState implements IngredientState {
 
 
     @Override
@@ -14,4 +14,6 @@ public class IngredientExpiredState implements IngredientState{
     public String getState() {
         return "expired";
     }
+
+
 }

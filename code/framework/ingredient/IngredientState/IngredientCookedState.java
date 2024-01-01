@@ -2,8 +2,7 @@ package framework.ingredient.IngredientState;
 
 import framework.ingredient.Ingredient;
 
-public class IngredientCookedState implements IngredientState{
-
+public class IngredientCookedState implements IngredientState {
 
     @Override
     public void showState() {
@@ -14,4 +13,6 @@ public class IngredientCookedState implements IngredientState{
     public String getState() {
         return "cooked";
     }
+
+
 }

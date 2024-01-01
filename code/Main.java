@@ -2,17 +2,19 @@ import framework.food.Food;
 import framework.food.FoodFactory;
 import framework.food.FoodFactoryProducer;
 import framework.food.FoodName;
+import framework.ingredient.IngredientFactory;
 import framework.order.Order;
 import framework.order.OrderBuilder;
 import framework.order.PromotionContext;
 import framework.order.PromotionInterface;
 
 public class Main {
-    public static void main(String[] args){
+    public static void main(String[] args) throws CloneNotSupportedException {
         Main.TestAbstractFactory(); //抽象工厂模式
         Main.TestNullObject(); //空对象模式
         Main.TestStrategy();  // 订单的策略模式
         Main.TestBuilder();  // 订单的建造者模式
+        Main.TestPrototype();
     }
 
     public static void TestAbstractFactory() {
@@ -67,4 +69,23 @@ public class Main {
         Order order = builder.order();
         order.displayFood();
     }
+
+    public static void TestPrototype() throws CloneNotSupportedException {
+        System.out.println("----------entry test prototype----------");
+        IngredientFactory ingredientFactory=IngredientFactory.getInstance();
+        System.out.println("克隆100个鸡块...");
+        ingredientFactory.importIngredient(IngredientFactory.IngredientType.鸡块,100);
+        System.out.println("克隆100个芝士...");
+        ingredientFactory.importIngredient(IngredientFactory.IngredientType.芝士,100);
+        System.out.println("克隆100个薯条...");
+        ingredientFactory.importIngredient(IngredientFactory.IngredientType.薯条,100);
+        System.out.println("克隆100个炸鸡排...");
+        ingredientFactory.importIngredient(IngredientFactory.IngredientType.炸鸡排,100);
+        System.out.println("克隆100个牛油果...");
+        ingredientFactory.importIngredient(IngredientFactory.IngredientType.牛油果,100);
+        System.out.println("克隆100个taco饼...");
+        ingredientFactory.importIngredient(IngredientFactory.IngredientType.taco饼,100);
+    }
+
+
 }

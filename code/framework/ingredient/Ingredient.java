@@ -51,13 +51,13 @@ public class Ingredient implements Cloneable, TimerObserver {
      * @return
      * @throws CloneNotSupportedException
      */
-    public Object clone() throws CloneNotSupportedException{
-        return super.clone();
+    @Override
+    public Ingredient clone() {
+        return new Ingredient(this.type);
     }
 
     /**
      * 获取状态方法
-     * @param ingredientState
      */
     public String getState(){
         return this.ingredientState.getState();
