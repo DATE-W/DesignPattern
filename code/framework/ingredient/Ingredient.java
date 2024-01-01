@@ -53,7 +53,10 @@ public class Ingredient implements Cloneable, TimerObserver {
      */
     @Override
     public Ingredient clone() {
-        return new Ingredient(this.type);
+        Ingredient ingredient=new Ingredient(this.type);
+        ingredient.decayRate=this.decaySpeed;
+        ingredient.decaySpeed=this.decaySpeed;
+        return ingredient;
     }
 
     /**
