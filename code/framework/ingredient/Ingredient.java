@@ -47,7 +47,7 @@ public class Ingredient implements Cloneable, TimerObserver {
     }
 
     /**
-     * 浅拷贝，失败的时候抛出克隆失败的异常
+     * 拷贝，失败的时候抛出克隆失败的异常
      * @return
      * @throws CloneNotSupportedException
      */
