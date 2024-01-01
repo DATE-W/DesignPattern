@@ -19,6 +19,8 @@ public class Main {
         Main.TestBuilder();  // 订单的建造者模式
         Main.TestPrototype(); // 原料的原型模式
         Main.TestState();   // 原料的状态模式
+        Main.TestFactory(); // 原料的工厂模式
+        Main.TestSingle();  // 原料的单例模式
     }
 
     public static void TestAbstractFactory() {
@@ -102,4 +104,35 @@ public class Main {
         System.out.println("目前的状态为: "+ingredient.getState());
     }
 
+    public static void TestFactory(){
+        System.out.println("----------entry test factory----------");
+        IngredientFactory ingredientFactory=IngredientFactory.getInstance();
+        System.out.println("使用原料工厂获取鸡块...");
+        ingredientFactory.createIngredient(IngredientFactory.IngredientType.鸡块);
+        System.out.println("使用原料工厂获取牛油果...");
+        ingredientFactory.createIngredient(IngredientFactory.IngredientType.牛油果);
+        System.out.println("使用原料工厂进货taco饼...");
+        ingredientFactory.createIngredient(IngredientFactory.IngredientType.taco饼);
+        System.out.println("使用原料工厂进货薯条...");
+        ingredientFactory.createIngredient(IngredientFactory.IngredientType.薯条);
+        System.out.println("查看是否还有芝士...");
+        System.out.println(ingredientFactory.hasIngredient(IngredientFactory.IngredientType.芝士));
+        System.out.println("查看是否还有炸鸡排...");
+        System.out.println(ingredientFactory.hasIngredient(IngredientFactory.IngredientType.炸鸡排));
+    }
+
+
+
+    public static void TestSingle(){
+        System.out.println("----------entry test single----------");
+        IngredientFactory ingredientFactory=IngredientFactory.getInstance();
+        System.out.println("查看第一个工厂示例...");
+        System.out.println(ingredientFactory);
+        IngredientFactory nextIngredientFactory=IngredientFactory.getInstance();
+        System.out.println("查看第二个工厂示例...");
+        System.out.println(nextIngredientFactory);
+        System.out.println("查看工厂是否相同...");
+        System.out.println(ingredientFactory==nextIngredientFactory);
+
+    }
 }
