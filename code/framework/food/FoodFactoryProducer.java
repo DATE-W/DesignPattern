@@ -5,7 +5,8 @@ public class FoodFactoryProducer {
         Taco,
         Drink,
         Snacks,
-        SETMEAL
+        SETMEAL,
+        NULL
     }
 
     public static FoodFactory create(FoodFactoryName foodFactoryName) {
@@ -14,6 +15,7 @@ public class FoodFactoryProducer {
             case Drink -> new DrinkFactory();
             case Snacks -> new SnacksFactory();
             case SETMEAL -> new SetMealFactory();
+            default -> new NotFoodFactory();
         };
     }
 }
