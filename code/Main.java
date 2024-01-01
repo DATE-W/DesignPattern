@@ -2,7 +2,10 @@ import framework.food.Food;
 import framework.food.FoodFactory;
 import framework.food.FoodFactoryProducer;
 import framework.food.FoodName;
+import framework.ingredient.Ingredient;
 import framework.ingredient.IngredientFactory;
+import framework.ingredient.IngredientState.IngredientCookedState;
+import framework.ingredient.IngredientState.IngredientExpiredState;
 import framework.order.Order;
 import framework.order.OrderBuilder;
 import framework.order.PromotionContext;
@@ -14,7 +17,8 @@ public class Main {
         Main.TestNullObject(); //空对象模式
         Main.TestStrategy();  // 订单的策略模式
         Main.TestBuilder();  // 订单的建造者模式
-        Main.TestPrototype();
+        Main.TestPrototype(); // 原料的原型模式
+        Main.TestState();   // 原料的状态模式
     }
 
     public static void TestAbstractFactory() {
@@ -87,5 +91,15 @@ public class Main {
         ingredientFactory.importIngredient(IngredientFactory.IngredientType.taco饼,100);
     }
 
+    public static void TestState(){
+        System.out.println("----------entry test prototype----------");
+        IngredientFactory ingredientFactory=IngredientFactory.getInstance();
+        Ingredient ingredient=ingredientFactory.createIngredient(IngredientFactory.IngredientType.鸡块);
+        System.out.println("目前的状态为: "+ingredient.getState());
+        ingredient.changeState(new IngredientExpiredState());
+        System.out.println("目前的状态为: "+ingredient.getState());
+        ingredient.changeState(new IngredientCookedState());
+        System.out.println("目前的状态为: "+ingredient.getState());
+    }
 
 }
