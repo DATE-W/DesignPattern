@@ -7,6 +7,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 public final class Chef implements ChefCommand{
+    /**
+     * 获取单例对象
+     */
+    private IngredientFactory ingredientFactory=IngredientFactory.getInstance();
     private static final Chef instance = new Chef();
     private boolean isBusy;
     private Chef() {
@@ -24,7 +28,7 @@ public final class Chef implements ChefCommand{
     }
 
     public Ingredient getIngredient(IngredientFactory.IngredientType ingredientType){
-        Ingredient ingredient = IngredientFactory.createIngredient(ingredientType);
+        Ingredient ingredient = ingredientFactory.createIngredient(ingredientType);
         System.out.println("正在处理原料："+ingredientType);
         return ingredient;
     }

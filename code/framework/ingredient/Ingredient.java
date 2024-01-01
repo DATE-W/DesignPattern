@@ -55,6 +55,13 @@ public class Ingredient implements Cloneable, TimerObserver {
         return super.clone();
     }
 
+    /**
+     * 获取状态方法
+     * @param ingredientState
+     */
+    public String getState(){
+        return this.ingredientState.getState();
+    }
 
     /**
      * 实现Timer Observer方法

@@ -7,6 +7,10 @@ import framework.ingredient.IngredientFactory;
 import java.util.ArrayList;
 
 public abstract class Snacks extends Item {
+    /**
+     * 获取单例对象
+     */
+    private IngredientFactory ingredientFactory=IngredientFactory.getInstance();
     private ArrayList<IngredientFactory.IngredientType> ingredients = new ArrayList<>();
 
     Snacks(ArrayList<IngredientFactory.IngredientType> ingredients,double price){
@@ -24,7 +28,7 @@ public abstract class Snacks extends Item {
         Chef chef = Chef.getInstance();
 
         for (IngredientFactory.IngredientType type : ingredients) {
-            if (!(IngredientFactory.hasIngredient(type))) {
+            if (!(ingredientFactory.hasIngredient(type))) {
                 System.out.println("缺少材料，加工失败：(");
                 return;
             }
