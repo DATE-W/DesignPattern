@@ -1,10 +1,23 @@
 package framework.ingredient;
 
+import framework.ingredient.IngredientState.IngredientExpiredState;
+import framework.ingredient.IngredientState.IngredientRawState;
 import framework.ingredient.IngredientState.IngredientState;
+import framework.time.TimerObserver;
 
 import java.lang.reflect.Type;
 
-public class Ingredient implements Cloneable{
+public class Ingredient implements Cloneable, TimerObserver {
+
+    /**
+     * 腐烂度
+     */
+    private double decayRate=0.0;
+    /**
+     * 腐烂度
+     */
+    private double decaySpeed=1.0;
+
     /**
      * 食材种类
      */
@@ -22,7 +35,7 @@ public class Ingredient implements Cloneable{
     /**
      * 食品状态
      */
-    private IngredientState ingredientState;
+    private IngredientState ingredientState=new IngredientRawState();
 
 
     /**
@@ -31,7 +44,6 @@ public class Ingredient implements Cloneable{
      */
     public void changeState(IngredientState ingredientState){
         this.ingredientState = ingredientState;
-        this.ingredientState.setIngredientState(this);
     }
 
     /**
@@ -44,8 +56,17 @@ public class Ingredient implements Cloneable{
     }
 
 
+    /**
+     * 实现Timer Observer方法
+     * 完成状态的更新
+     */
+    @Override
+    public void update() {
+        if (this.ingredientState.getState()=="expired"||this.ingredientState.getState()=="cooked") return;
+        this.decayRate += this.decaySpeed ;
+        if (this.decayRate >= 100) {
+            this.changeState(new IngredientExpiredState());
+        }
 
-
-
-
+    }
 }

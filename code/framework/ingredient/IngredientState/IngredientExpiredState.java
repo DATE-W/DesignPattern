@@ -2,11 +2,16 @@ package framework.ingredient.IngredientState;
 
 import framework.ingredient.Ingredient;
 
-public class IngredientExpiredState extends IngredientState{
+public class IngredientExpiredState implements IngredientState{
 
 
     @Override
-    void showState() {
+    public void showState() {
         System.out.println("the ingredient is expired!");
+    }
+
+    @Override
+    public String getState() {
+        return "expired";
     }
 }
