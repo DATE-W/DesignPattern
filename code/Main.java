@@ -13,9 +13,13 @@ import framework.order.PromotionContext;
 import framework.order.PromotionInterface;
 import framework.time.Timer;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Main {
     public static void main(String[] args) throws CloneNotSupportedException {
         Main.TestServeOrder(); //命令模式
+        Main.TestVistor(); //观察者模式
         Main.TestAbstractFactory(); //抽象工厂模式
         Main.TestNullObject(); //空对象模式
         Main.TestStrategy();  // 订单的策略模式
@@ -51,6 +55,24 @@ public class Main {
         // Command
         chef.processOrder(order);
     }
+
+    public static void TestVistor() {
+        System.out.println("----------entry test visitor----------");
+        System.out.println("原料的默认状态是 raw，所以应为 raw\n");
+        Chef chef = Chef.getInstance();
+
+        // visitor
+        List<Ingredient> ingredientList = new ArrayList<>();
+        ingredientList.add(new Ingredient("鸡块"));
+        ingredientList.add(new Ingredient("芝士"));
+        ingredientList.add(new Ingredient("薯条"));
+        ingredientList.add(new Ingredient("taco饼"));
+        ingredientList.add(new Ingredient("炸鸡排"));
+        ingredientList.add(new Ingredient("牛油果"));
+
+        chef.visit(ingredientList);
+    }
+
 
     public static void TestAbstractFactory() {
         System.out.println("----------entry test AbstractFactory & Factory----------");
