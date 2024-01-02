@@ -1,6 +1,7 @@
 package framework.food;
 
 import framework.food.item.Item;
+import framework.food.item.NullItem;
 import framework.food.item.taco.*;
 import framework.food.setMeal.SetMeal;
 import framework.ingredient.IngredientFactory;
@@ -27,7 +28,7 @@ class TacoFactory extends FoodFactory{
                                 IngredientFactory.IngredientType.炸鸡排)),
                         21.5);
             default:
-                throw new IllegalArgumentException(foodName+"不在菜单中");
+                return new NullItem();
         }
     }
 

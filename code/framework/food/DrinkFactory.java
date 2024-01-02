@@ -1,6 +1,7 @@
 package framework.food;
 
 import framework.food.item.Item;
+import framework.food.item.NullItem;
 import framework.food.item.drink.Coke;
 import framework.food.item.drink.WhiteJasmineFreshMilk;
 import framework.food.setMeal.SetMeal;
@@ -14,7 +15,7 @@ class DrinkFactory extends FoodFactory {
             case WhiteJasmineFreshMilk:
                 return new WhiteJasmineFreshMilk(13.5);
             default:
-                throw new IllegalArgumentException(foodName + "不在菜单中");
+                return new NullItem();
         }
     }
     @Override
