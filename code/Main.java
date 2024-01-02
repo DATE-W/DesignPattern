@@ -58,7 +58,7 @@ public class Main {
 
     public static void TestVistor() {
         System.out.println("----------entry test visitor----------");
-        System.out.println("原料的默认状态是 raw，所以应为 raw\n");
+        System.out.println("原料的初始状态是 raw，所以应为 raw\n");
         Chef chef = Chef.getInstance();
 
         // visitor
