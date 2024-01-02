@@ -1,3 +1,4 @@
+import framework.chef.Chef;
 import framework.food.Food;
 import framework.food.FoodFactory;
 import framework.food.FoodFactoryProducer;
@@ -14,6 +15,7 @@ import framework.time.Timer;
 
 public class Main {
     public static void main(String[] args) throws CloneNotSupportedException {
+        Main.TestServeOrder(); //命令模式
         Main.TestAbstractFactory(); //抽象工厂模式
         Main.TestNullObject(); //空对象模式
         Main.TestStrategy();  // 订单的策略模式
@@ -23,6 +25,31 @@ public class Main {
         Main.TestFactory(); // 原料的工厂模式
         Main.TestSingle();  // 原料的单例模式
         Main.TestObserver(); //观察者模式
+    }
+
+    public static void TestServeOrder() {
+        // 下单测试
+        // 单例模式 Singleton
+        System.out.println("----------entry test single & command----------");
+        System.out.printf("比较大厨实例地址是否相等: %b\n", Chef.getInstance() == Chef.getInstance());
+
+        Chef chef = Chef.getInstance();
+
+        System.out.println("内部时间流动 10 个 tick，食材的新鲜度发生变化！");
+        for (int i = 0; i < 10; i++) {
+            Timer.getInstance().tick();
+        }
+
+        // Builder
+        OrderBuilder builder = new OrderBuilder();
+        builder.orderTaco(FoodName.AvocadoFiredChickenTaco);
+        // Composite
+        builder.orderDrink(FoodName.Coke);
+        builder.orderSnack(FoodName.CheeseFries);
+        Order order = builder.order();
+
+        // Command
+        chef.processOrder(order);
     }
 
     public static void TestAbstractFactory() {
@@ -49,7 +76,7 @@ public class Main {
     }
 
     public static void TestStrategy(){
-        System.out.println("----------entry test strategy----------");
+        System.out.println("----------entry test strategy && bridge----------");
         OrderBuilder builder = new OrderBuilder();
         builder.orderTaco(FoodName.CheeseFiredChickenTaco);
         builder.orderDrink(FoodName.WhiteJasmineFreshMilk);
@@ -123,8 +150,6 @@ public class Main {
         System.out.println(ingredientFactory.hasIngredient(IngredientFactory.IngredientType.FriedChicken));
     }
 
-
-
     public static void TestSingle(){
         System.out.println("----------entry test single----------");
         IngredientFactory ingredientFactory=IngredientFactory.getInstance();
@@ -135,7 +160,6 @@ public class Main {
         System.out.println(nextIngredientFactory);
         System.out.println("查看工厂是否相同...");
         System.out.println(ingredientFactory==nextIngredientFactory);
-
     }
 
     public static void TestObserver(){
@@ -153,6 +177,4 @@ public class Main {
 
 
     }
-
-
 }

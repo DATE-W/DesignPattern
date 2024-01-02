@@ -20,7 +20,6 @@ public final class Chef implements ChefCommand{
         isBusy=false;
     }
     public static synchronized Chef getInstance() {
-        //System.out.println("1234");
         return instance;
     }
     public synchronized boolean getBusy() {
@@ -29,6 +28,7 @@ public final class Chef implements ChefCommand{
 
     public Ingredient getIngredient(IngredientFactory.IngredientType ingredientType){
         Ingredient ingredient = ingredientFactory.createIngredient(ingredientType);
+        ingredient.process();
         System.out.println("正在处理原料："+ingredientType);
         return ingredient;
     }
