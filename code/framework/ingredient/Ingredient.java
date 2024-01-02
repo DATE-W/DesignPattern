@@ -5,9 +5,7 @@ import framework.ingredient.IngredientState.IngredientRawState;
 import framework.ingredient.IngredientState.IngredientState;
 import framework.time.TimerObserver;
 
-import java.lang.reflect.Type;
-
-public class Ingredient implements Cloneable, TimerObserver {
+public class Ingredient implements Cloneable, TimerObserver  {
 
     /**
      * 腐烂度
@@ -78,5 +76,10 @@ public class Ingredient implements Cloneable, TimerObserver {
             this.changeState(new IngredientExpiredState());
         }
 
+    }
+
+
+    public boolean process() {
+        return this.ingredientState.processThis();
     }
 }

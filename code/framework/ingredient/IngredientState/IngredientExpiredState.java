@@ -2,7 +2,7 @@ package framework.ingredient.IngredientState;
 
 import framework.ingredient.Ingredient;
 
-public class IngredientExpiredState implements IngredientState {
+public class IngredientExpiredState extends CookProcess implements IngredientState {
 
 
     @Override
@@ -16,4 +16,26 @@ public class IngredientExpiredState implements IngredientState {
     }
 
 
+    @Override
+    public boolean processThis() {
+        return this.process();
+    }
+
+    @Override
+    public boolean wash() {
+        System.out.println("过期食材就不要清洗了呢！");
+        return false;
+    }
+
+    @Override
+    public boolean cook() {
+        System.out.println("过期食材还是不要烹饪了！");
+        return false;
+    }
+
+    @Override
+    public boolean plate() {
+        System.out.println("过期食材就不要摆盘了把！");
+        return false;
+    }
 }
