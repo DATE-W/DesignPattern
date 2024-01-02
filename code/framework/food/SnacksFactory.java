@@ -18,14 +18,14 @@ public class SnacksFactory extends FoodFactory{
             case ChickenNuggets5:
                 return new CheeseFiredChickenTaco(
                         new ArrayList<>(Arrays.asList(
-                                IngredientFactory.IngredientType.鸡块,
-                                IngredientFactory.IngredientType.芝士)),
+                                IngredientFactory.IngredientType.ChickenNuggets,
+                                IngredientFactory.IngredientType.Cheese)),
                         8.5);
             case CheeseFries:
                 return new CheeseFries(
                         new ArrayList<>(Arrays.asList(
-                                IngredientFactory.IngredientType.薯条,
-                                IngredientFactory.IngredientType.芝士)),
+                                IngredientFactory.IngredientType.FrenchFries,
+                                IngredientFactory.IngredientType.Cheese)),
                         8.5);
             default:
                 return new NullItem();

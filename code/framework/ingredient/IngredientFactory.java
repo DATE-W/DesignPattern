@@ -10,31 +10,31 @@ import java.util.List;
  */
 public class IngredientFactory {
     private HashMap<String,List<Ingredient>> foodMap=new HashMap<>();
-    private List<Ingredient> 鸡块List=new ArrayList<>(100);
-    private List<Ingredient> 芝士List=new ArrayList<>(100);
-    private List<Ingredient> 薯条List=new ArrayList<>(100);
+    private List<Ingredient> ChickenNuggetsList=new ArrayList<>(100);
+    private List<Ingredient> CheeseList=new ArrayList<>(100);
+    private List<Ingredient> FrenchFriesList=new ArrayList<>(100);
 
-    private List<Ingredient> taco饼List=new ArrayList<>(100);
-    private List<Ingredient> 炸鸡排List=new ArrayList<>(100);
-    private List<Ingredient> 牛油果List=new ArrayList<>(100);
+    private List<Ingredient> TacoList=new ArrayList<>(100);
+    private List<Ingredient> FriedChickenList=new ArrayList<>(100);
+    private List<Ingredient> AvocadoList=new ArrayList<>(100);
     /**
      * 构造函数私有化，防止外部调用
      */
     private IngredientFactory(){
         for(int i=0;i<100;i++){
-            this.鸡块List.add(new Ingredient("鸡块"));
-            this.芝士List.add(new Ingredient("芝士"));
-            this.薯条List.add(new Ingredient("薯条"));
-            this.taco饼List.add(new Ingredient("taco饼"));
-            this.炸鸡排List.add(new Ingredient("炸鸡排"));
-            this.牛油果List.add(new Ingredient("牛油果"));
+            this.ChickenNuggetsList.add(new Ingredient("鸡块"));
+            this.CheeseList.add(new Ingredient("芝士"));
+            this.FrenchFriesList.add(new Ingredient("薯条"));
+            this.TacoList.add(new Ingredient("taco饼"));
+            this.FriedChickenList.add(new Ingredient("炸鸡排"));
+            this.AvocadoList.add(new Ingredient("牛油果"));
         }
-        this.foodMap.put("鸡块",this.鸡块List);
-        this.foodMap.put("芝士",this.芝士List);
-        this.foodMap.put("薯条",this.薯条List);
-        this.foodMap.put("taco饼",this.taco饼List);
-        this.foodMap.put("炸鸡排",this.炸鸡排List);
-        this.foodMap.put("牛油果",this.牛油果List);
+        this.foodMap.put("ChickenNuggets",this.ChickenNuggetsList);
+        this.foodMap.put("Cheese",this.CheeseList);
+        this.foodMap.put("FrenchFries",this.FrenchFriesList);
+        this.foodMap.put("Taco",this.TacoList);
+        this.foodMap.put("FriedChicken",this.FriedChickenList);
+        this.foodMap.put("Avocado",this.AvocadoList);
     }
 
     /**
@@ -53,7 +53,7 @@ public class IngredientFactory {
      * 种类的枚举集合
      * 鸡块 芝士 薯条 taco饼 炸鸡排 牛油果
      */
-    public enum IngredientType{鸡块,芝士,薯条,taco饼,炸鸡排,牛油果}
+    public enum IngredientType{ChickenNuggets,Cheese,FrenchFries,Taco,FriedChicken,Avocado}
 
 
     /**

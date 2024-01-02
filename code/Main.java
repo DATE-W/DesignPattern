@@ -82,23 +82,23 @@ public class Main {
         System.out.println("----------entry test prototype----------");
         IngredientFactory ingredientFactory=IngredientFactory.getInstance();
         System.out.println("克隆100个鸡块...");
-        ingredientFactory.importIngredient(IngredientFactory.IngredientType.鸡块,100);
+        ingredientFactory.importIngredient(IngredientFactory.IngredientType.ChickenNuggets,100);
         System.out.println("克隆100个芝士...");
-        ingredientFactory.importIngredient(IngredientFactory.IngredientType.芝士,100);
+        ingredientFactory.importIngredient(IngredientFactory.IngredientType.Cheese,100);
         System.out.println("克隆100个薯条...");
-        ingredientFactory.importIngredient(IngredientFactory.IngredientType.薯条,100);
+        ingredientFactory.importIngredient(IngredientFactory.IngredientType.FrenchFries,100);
         System.out.println("克隆100个炸鸡排...");
-        ingredientFactory.importIngredient(IngredientFactory.IngredientType.炸鸡排,100);
+        ingredientFactory.importIngredient(IngredientFactory.IngredientType.FriedChicken,100);
         System.out.println("克隆100个牛油果...");
-        ingredientFactory.importIngredient(IngredientFactory.IngredientType.牛油果,100);
+        ingredientFactory.importIngredient(IngredientFactory.IngredientType.Avocado,100);
         System.out.println("克隆100个taco饼...");
-        ingredientFactory.importIngredient(IngredientFactory.IngredientType.taco饼,100);
+        ingredientFactory.importIngredient(IngredientFactory.IngredientType.Taco,100);
     }
 
     public static void TestState(){
         System.out.println("----------entry test state----------");
         IngredientFactory ingredientFactory=IngredientFactory.getInstance();
-        Ingredient ingredient=ingredientFactory.createIngredient(IngredientFactory.IngredientType.鸡块);
+        Ingredient ingredient=ingredientFactory.createIngredient(IngredientFactory.IngredientType.ChickenNuggets);
         System.out.println("目前的状态为: "+ingredient.getState());
         ingredient.changeState(new IngredientExpiredState());
         System.out.println("目前的状态为: "+ingredient.getState());
@@ -110,17 +110,17 @@ public class Main {
         System.out.println("----------entry test factory----------");
         IngredientFactory ingredientFactory=IngredientFactory.getInstance();
         System.out.println("使用原料工厂获取鸡块...");
-        ingredientFactory.createIngredient(IngredientFactory.IngredientType.鸡块);
+        ingredientFactory.createIngredient(IngredientFactory.IngredientType.ChickenNuggets);
         System.out.println("使用原料工厂获取牛油果...");
-        ingredientFactory.createIngredient(IngredientFactory.IngredientType.牛油果);
+        ingredientFactory.createIngredient(IngredientFactory.IngredientType.Avocado);
         System.out.println("使用原料工厂进货taco饼...");
-        ingredientFactory.createIngredient(IngredientFactory.IngredientType.taco饼);
+        ingredientFactory.createIngredient(IngredientFactory.IngredientType.Taco);
         System.out.println("使用原料工厂进货薯条...");
-        ingredientFactory.createIngredient(IngredientFactory.IngredientType.薯条);
+        ingredientFactory.createIngredient(IngredientFactory.IngredientType.FrenchFries);
         System.out.println("查看是否还有芝士...");
-        System.out.println(ingredientFactory.hasIngredient(IngredientFactory.IngredientType.芝士));
+        System.out.println(ingredientFactory.hasIngredient(IngredientFactory.IngredientType.Cheese));
         System.out.println("查看是否还有炸鸡排...");
-        System.out.println(ingredientFactory.hasIngredient(IngredientFactory.IngredientType.炸鸡排));
+        System.out.println(ingredientFactory.hasIngredient(IngredientFactory.IngredientType.FriedChicken));
     }
 
 
@@ -141,9 +141,9 @@ public class Main {
     public static void TestObserver(){
         System.out.println("----------entry test observer ----------");
         IngredientFactory ingredientFactory=IngredientFactory.getInstance();
-        Ingredient temp1=ingredientFactory.createIngredient(IngredientFactory.IngredientType.鸡块);
+        Ingredient temp1=ingredientFactory.createIngredient(IngredientFactory.IngredientType.ChickenNuggets);
         System.out.println("鸡块状态为: "+temp1.getState());
-        Ingredient temp2=ingredientFactory.createIngredient(IngredientFactory.IngredientType.薯条);
+        Ingredient temp2=ingredientFactory.createIngredient(IngredientFactory.IngredientType.FrenchFries);
         System.out.println("薯条状态为: "+temp2.getState());
         for(int i=0;i<1000;i++){
             Timer.getInstance().tick();

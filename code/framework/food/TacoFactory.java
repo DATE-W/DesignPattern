@@ -16,16 +16,16 @@ class TacoFactory extends FoodFactory{
             case CheeseFiredChickenTaco:
                 return new CheeseFiredChickenTaco(
                         new ArrayList<>(Arrays.asList(
-                                IngredientFactory.IngredientType.taco饼,
-                                IngredientFactory.IngredientType.芝士,
-                                IngredientFactory.IngredientType.炸鸡排)),
+                                IngredientFactory.IngredientType.Taco,
+                                IngredientFactory.IngredientType.Cheese,
+                                IngredientFactory.IngredientType.FriedChicken)),
                         19.5);
             case AvocadoFiredChickenTaco:
                 return new AvocadoFiredChickenTaco(
                         new ArrayList<>(Arrays.asList(
-                                IngredientFactory.IngredientType.taco饼,
-                                IngredientFactory.IngredientType.牛油果,
-                                IngredientFactory.IngredientType.炸鸡排)),
+                                IngredientFactory.IngredientType.Taco,
+                                IngredientFactory.IngredientType.Avocado,
+                                IngredientFactory.IngredientType.FriedChicken)),
                         21.5);
             default:
                 return new NullItem();
