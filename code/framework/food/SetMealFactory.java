@@ -14,7 +14,7 @@ public class SetMealFactory extends FoodFactory {
         return switch (foodName) {
             case Set_CheeseFiredChickenTaco_Coke -> new Set_CheeseFiredChickenTaco_Coke();
             case Set_AvocadoFiredChickenTaco_ChickenNuggets5 -> new Set_AvocadoFiredChickenTaco_ChickenNuggets5();
-            default -> new NotSetMeal();
+            default -> new NullSetMeal();
         };
     }
 }

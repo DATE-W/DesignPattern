@@ -1,7 +1,7 @@
 package framework.food.item;
 
-public class NotItem extends Item{
-    public NotItem() {
+public class NullItem extends Item{
+    public NullItem() {
         super(0);
     }
     @Override
