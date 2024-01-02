@@ -1,7 +1,7 @@
 package framework.chef;
 
-//import framework.container.Container;
+import framework.ingredient.Ingredient;
 
 public interface ChefVisitor {
-//    void visit(Container container);
+    void visit (Ingredient ingredient);
 }

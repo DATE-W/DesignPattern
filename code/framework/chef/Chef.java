@@ -40,7 +40,6 @@ public final class Chef implements ChefCommand{
         theOrder.displayFood();
         theOrder.handleOrder();
     }
-
 }
 
 class Test {
