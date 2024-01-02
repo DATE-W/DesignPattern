@@ -96,4 +96,11 @@ public class IngredientFactory {
         return foodList.size() != 0;
     }
 
+    public int countExpiredIngredient(IngredientType ingredientType){
+        List<Ingredient> foodList=this.foodMap.get(ingredientType.toString());
+        int i=0;
+        for(Ingredient ingredient:foodList)if (ingredient.getState()=="expired") i++;
+        return i;
+    }
+
 }

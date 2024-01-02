@@ -10,6 +10,7 @@ import framework.order.Order;
 import framework.order.OrderBuilder;
 import framework.order.PromotionContext;
 import framework.order.PromotionInterface;
+import framework.time.Timer;
 
 public class Main {
     public static void main(String[] args) throws CloneNotSupportedException {
@@ -21,6 +22,7 @@ public class Main {
         Main.TestState();   // 原料的状态模式
         Main.TestFactory(); // 原料的工厂模式
         Main.TestSingle();  // 原料的单例模式
+        Main.TestObserver(); //观察者模式
     }
 
     public static void TestAbstractFactory() {
@@ -135,4 +137,22 @@ public class Main {
         System.out.println(ingredientFactory==nextIngredientFactory);
 
     }
+
+    public static void TestObserver(){
+        System.out.println("----------entry test observer ----------");
+        IngredientFactory ingredientFactory=IngredientFactory.getInstance();
+        Ingredient temp1=ingredientFactory.createIngredient(IngredientFactory.IngredientType.鸡块);
+        System.out.println("鸡块状态为: "+temp1.getState());
+        Ingredient temp2=ingredientFactory.createIngredient(IngredientFactory.IngredientType.薯条);
+        System.out.println("薯条状态为: "+temp2.getState());
+        for(int i=0;i<1000;i++){
+            Timer.getInstance().tick();
+        }
+        System.out.println("鸡块状态为: "+temp1.getState());
+        System.out.println("薯条状态为: "+temp2.getState());
+
+
+    }
+
+
 }
