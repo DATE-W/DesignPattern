@@ -33,6 +33,10 @@ public class Ingredient implements Cloneable, TimerObserver  {
         Timer.getInstance().addObserver(this);
     }
 
+    public String getType() {
+        return this.type;
+    }
+
     /**
      * 食品状态
      */
