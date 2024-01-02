@@ -3,6 +3,7 @@ package framework.ingredient;
 import framework.ingredient.IngredientState.IngredientExpiredState;
 import framework.ingredient.IngredientState.IngredientRawState;
 import framework.ingredient.IngredientState.IngredientState;
+import framework.time.Timer;
 import framework.time.TimerObserver;
 
 public class Ingredient implements Cloneable, TimerObserver  {
@@ -27,7 +28,9 @@ public class Ingredient implements Cloneable, TimerObserver  {
      * @param type
      */
     public Ingredient(String type) {
+
         this.type=type;
+        Timer.getInstance().addObserver(this);
     }
 
     /**
