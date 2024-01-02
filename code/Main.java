@@ -94,7 +94,7 @@ public class Main {
     }
 
     public static void TestState(){
-        System.out.println("----------entry test prototype----------");
+        System.out.println("----------entry test state----------");
         IngredientFactory ingredientFactory=IngredientFactory.getInstance();
         Ingredient ingredient=ingredientFactory.createIngredient(IngredientFactory.IngredientType.鸡块);
         System.out.println("目前的状态为: "+ingredient.getState());
